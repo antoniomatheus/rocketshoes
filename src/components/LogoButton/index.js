@@ -1,10 +1,15 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Image } from 'react-native';
+import { View } from 'react-native';
+import { Touchable, LogoImage } from './styles';
 
-export default function LogoButton({ logo, onPress }) {
+import Logo from '../../assets/logo.svg';
+
+export default function LogoButton({ onPress }) {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <Image source={logo} />
-    </TouchableWithoutFeedback>
+    <Touchable onPress={onPress}>
+      <View style={{ paddingLeft: 15 }}>
+        <LogoImage />
+      </View>
+    </Touchable>
   );
 }

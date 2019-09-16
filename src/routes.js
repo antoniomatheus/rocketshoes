@@ -1,12 +1,10 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import LogoButton from './components/LogoButton';
 
 import Home from './views/Home';
 import Cart from './views/Cart';
-import LogoButton from './components/LogoButton';
-
-import logo from './assets/logo.svg';
 
 const Routes = createAppContainer(
   createStackNavigator(
@@ -15,17 +13,13 @@ const Routes = createAppContainer(
       Cart,
     },
     {
-      defaultNavigationOptions: ({ navigation }) => {
-        return {
-          headerStyle: {
-            backgroundColor: '#141419',
-          },
-          headerTintColor: '#fff',
-          headerLeft: (
-            <LogoButton onPress={navigation.navigate('Home')} logo={logo} />
-          ),
-        };
-      },
+      defaultNavigationOptions: ({ navigation }) => ({
+        headerStyle: {
+          backgroundColor: '#141419',
+        },
+        headerTintColor: '#fff',
+        headerLeft: <LogoButton onPress={() => navigation.navigate('Home')} />,
+      }),
     }
   )
 );

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { Text, FlatList } from 'react-native';
+import { Button, Text } from 'react-native';
 import api from '../../services/api';
+
+import { Container } from './styles';
+
+import Logo from '../../assets/logo.svg';
 
 export default class Home extends Component {
   constructor(props) {
@@ -20,7 +24,13 @@ export default class Home extends Component {
 
   render() {
     const { products } = this.state;
+    const { navigation } = this.props;
 
-    return <Text>First page</Text>;
+    return (
+      <Button
+        title="Go to the cart"
+        onPress={() => navigation.navigate('Cart')}
+      />
+    );
   }
 }
