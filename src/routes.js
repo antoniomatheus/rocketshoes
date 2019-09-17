@@ -2,6 +2,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import LogoButton from './components/LogoButton';
+import CartButton from './components/CartButton';
 
 import Home from './views/Home';
 import Cart from './views/Cart';
@@ -19,6 +20,12 @@ const Routes = createAppContainer(
         },
         headerTintColor: '#fff',
         headerLeft: <LogoButton onPress={() => navigation.navigate('Home')} />,
+        headerRight: (
+          <CartButton
+            quantity={3}
+            onPress={() => navigation.navigate('Cart')}
+          />
+        ),
       }),
     }
   )
