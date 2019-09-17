@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Text } from 'react-native';
+import { Container, List } from './styles';
 import api from '../../services/api';
 
-import { Container } from './styles';
-
-import Logo from '../../assets/logo.svg';
+import Item from '../../components/Item';
 
 export default class Home extends Component {
   constructor(props) {
@@ -24,13 +22,18 @@ export default class Home extends Component {
 
   render() {
     const { products } = this.state;
-    const { navigation } = this.props;
 
     return (
-      <Button
-        title="Go to the cart"
-        onPress={() => navigation.navigate('Cart')}
-      />
+      <Container>
+        <List
+          data={products}
+          renderItem={({ item }) => {
+            return <Item item={item} />;
+          }}
+          horizontal
+          keyExtractor={item => `${item.id}`}
+        />
+      </Container>
     );
   }
 }
