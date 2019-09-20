@@ -1,15 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
 import { StatusBar } from 'react-native';
+import store from './store';
 
 import './config/ReactotronConfig';
 import Routes from './routes';
 
 const App = () => {
   return (
-    <Fragment>
+    <Provider store={store}>
       <StatusBar backgroundColor="#141419" barStyle="light-content" />
       <Routes />
-    </Fragment>
+    </Provider>
   );
 };
 

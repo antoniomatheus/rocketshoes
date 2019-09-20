@@ -20,12 +20,7 @@ const Routes = createAppContainer(
         },
         headerTintColor: '#fff',
         headerLeft: <LogoButton onPress={() => navigation.navigate('Home')} />,
-        headerRight: (
-          <CartButton
-            quantity={3}
-            onPress={() => navigation.navigate('Cart')}
-          />
-        ),
+        headerRight: <CartButton onPress={() => navigation.navigate('Cart')} />,
       }),
     }
   )
